@@ -1,5 +1,26 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block title %}DjangoApp | Home{% endblock %} {%
+block content %}
+{% block content %}
+<div class="max-w-6xl mx-auto">
+  <h2 class="mb-3">This is django App home page</h2>
 
-{% block title %}DjangoApp | Home{% endblock %}
+  <div class="grid grid-cols-3 gap-6">
+    {% for app in apps %}
+    <div class="bg-blue-400 rounded-t-2xl">
+      <img
+        class="w-full h-72 object-cover rounded-t-2xl"
+        src="{{app.image.url}}"
+        alt=""
+      />
+      <div class="p-4">
+        <h5 class="text-xl">{{app.name}}</h5>
+        <a href="{% url 'app_detail' app.id %}">
+            <button type="button" class="bg-blue-800 w-full text-lg py-1 rounded">{{app.type}} - {{app.id}}</button>
+        </a>
+      </div>
+    </div>
 
-{% block content %}This is django App home page{% endblock %}
+    {% endfor %}
+  </div>
+</div>
+  {% endblock %}

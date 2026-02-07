@@ -1,0 +1,20 @@
+{% extends "layout.html" %} {% block title %}DjangoApp | App Details{% endblock %} 
+
+{% block content %}
+<div class="max-w-6xl mx-auto py-6">
+  {% comment %}
+  <h2 class="mb-3">This is django App home page</h2>
+  {% endcomment %}
+  <img
+    class="w-full h-96 object-cover rounded"
+    src="{{app.image.url}}"
+    alt=""
+  />
+  <h5 class="text-xl">{{app.name}}</h5>
+  <div class="flex items-center justify-between w-80 mx-auto">
+    <p class="text-xl">Type: {{app.type}}</p>
+  <p class="text-xl">Publish Date: {{app.date_added.date}}</p>
+  </div>
+  <p class="text-xl">{{app.descriptions}}</p>
+</div>
+{% endblock %}
